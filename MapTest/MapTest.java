@@ -6,6 +6,7 @@ public class MapTest
    public static void main(String args[]) 
    {
       int mapChoice = getMapChoice(); 
+      
       String filePath = ""; 
       if(mapChoice == 1)
          filePath = "EasyMap.txt"; 
