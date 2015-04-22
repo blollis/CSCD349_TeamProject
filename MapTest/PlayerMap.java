@@ -24,6 +24,19 @@ public class PlayerMap implements Map
       }
       
    }
+   
+   public void printPlayerMap(Map map) 
+   {
+	   for(int i = 0; i < this.map.length; i++)
+      {
+         for(int j = 0; j < this.map[i].length; j++)
+         {
+            System.out.print(this.map[i][j] + " "); 
+         }
+         System.out.println(); 
+      }
+      
+   }
 	
    public char[][] buildMap(String filePath) 
    {

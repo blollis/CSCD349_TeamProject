@@ -20,6 +20,7 @@ public class MapTest
          Map myMap = new PlayerMap(filePath);
          myMap.printMap(myMap); 
          System.out.println(); 
+        // myMap.printPlayerMap(myMap); 
    }//end main
 
    private static int getMapChoice()
