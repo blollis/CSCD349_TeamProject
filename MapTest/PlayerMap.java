@@ -4,12 +4,17 @@ public class PlayerMap implements Map
 {
 
 	private String filePath; 
-	private char[][] map;   
+	private char[][] map; 
+	private int exitX;  
+	private int exitY; 
 	
 	public PlayerMap(String filePath)
 	{
 		this.filePath = filePath; 
+		this.exitX = 0; 
+		this.exitY = 0; 
 	   this.map = buildMap(this.filePath); 
+
 	}
 
    public void printMap(Map map) 
@@ -30,8 +35,11 @@ public class PlayerMap implements Map
 	   for(int i = 0; i < this.map.length; i++)
       {
          for(int j = 0; j < this.map[i].length; j++)
-         {
-            System.out.print(this.map[i][j] + " "); 
+         {	
+				if(this.map[i][j] != '0')
+            	System.out.print("[ " + this.map[i][j] + " ]"); 
+				else
+					System.out.print("[   ]");
          }
          System.out.println(); 
       }
@@ -82,8 +90,55 @@ public class PlayerMap implements Map
          for(int j = 0; j < map[i].length; j++)
          {
             String line = (String)lines.get(i);
-            map[i][j] = line.charAt(j); 
+            map[i][j] = line.charAt(j);
+				if(line.charAt(j) == '2')
+				{
+					setExitX(i);
+					setExitY(j); 
+				} 
          }
       }
    }
+	
+	
+	public void setExitX(int x)
+	{
+		this.exitX = x; 
+	}
+	
+	public void setExitY(int y)
+	{
+		this.exitY = y; 
+	}
+	
+	public void setChar(int x, int y, char c)
+	{
+		this.map[y][x] = c; 
+	}
+	public char getCharAtPosition(int x, int y)
+	{
+		return this.map[y][x];
+	}
+	
+	public void updateMapForPlayerLocation(int x, int y)
+	{
+		for(int i = 0; i < this.map.length; i++)
+      {
+         for(int j = 0; j < this.map[i].length; j++)
+         {	
+				if(this.map[i][j] == 'P')
+            	this.map[i][j] = '0'; 					
+         }
+			this.map[y][x] = 'P'; 
+ 
+      }
+
+	}
+	
+	
+	
+	
+	
+	
+	
 }
