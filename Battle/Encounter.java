@@ -37,7 +37,7 @@ public class Encounter
 		ArrayList<BadGuy> enemyList = new ArrayList();
       int choice = rand.nextInt(19) + 1;
       int numEn = rand.nextInt(3) + 1;
-		if(choice <= 9)
+		if(choice > 0) //if(choice <= 9)
       {
 			Undead enemy = new Undead();
          enemyList.add(enemy);
@@ -49,7 +49,7 @@ public class Encounter
          }
          return enemyList;
       }
-		else if(choice > 9 && choice <= 14)
+		/*else if(choice > 9 && choice <= 14)
 		{
          Goblin enemy = new Goblin();
          enemyList.add(enemy);
@@ -96,7 +96,7 @@ public class Encounter
             enemyList.add(enemy);
          }
          return enemyList;
-      }
+      }*/
 	} //End of enemySelection()
    
 
@@ -188,16 +188,20 @@ public class Encounter
 
    public void enemyTurn(BadGuy attacker, ArrayList<GoodGuy> goodList)
    {
-      
+      int i = enemySelectHero(goodList.size());
+      battle(attacker, goodList.get(i));
    }
    
    public void playerTurn(GoodGuy attacker, ArrayList<BadGuy> badList)
    {
-   
+      badList = evilMenu(attacker, badList);
    }
 
 
-/*havent gotten around to where this is used yet but should be soon in the enemy/player turn.
+   //////////////////////////////
+   //Passes a good and bad guy
+   //Prints the menu for the player to chose
+   //////////////////////////////
    public boolean attackMenu(Character player, Character enemy)
    {
       boolean check = false;
@@ -207,19 +211,32 @@ public class Encounter
                          "\n2) Special attack" +
                          "\n3) Potions" +
                          "\n3) Party members");
-      int choice = (kb.nextInt())
+      int choice = (kb.nextInt());
       if(choice == 1)
 			check = combat(player, enemy);
 		else if(choice == 2)
 			check = combat(player, enemy);
 		else if(choice == 3)
-			potionMenu();
+			potionMenu(); //Haven't wrote yet
       else
-         partyMenu(player, enemy);
+         partyMenu(player, enemy); //Haven't wrote yet
       return check;
    }
    
-   public ArrayList evilMenu(Character player, ArrayList<Character> v)
+   public void potionMenu()
+   {
+   }
+   
+   public void partyMenu(Character p, character e)
+   {
+   }
+   
+   //////////////////////////////
+   //Passes in hero attacker and the arrayList of bad guys
+   //Prints each enemy and their remaining life from the array
+   //Has the user pick an enemy to attack or flee.
+   //////////////////////////////
+   public ArrayList evilMenu(Character player, ArrayList<BadGuy> v)
    {
       boolean check = false;
       Scanner kb = new Scanner(System.in);
@@ -230,18 +247,28 @@ public class Encounter
          System.out.println("\n" + i+1 + ") " + v.get(i).getName() + " HP: " + v.get(i).getHP());
       }
       System.out.println("\n0) Flee"); // Option to run
-      int choice = (kb.nextInt())
+      int choice = (kb.nextInt());
       if(choice == 0)
-			flee();
-		else
+			v = flee(v);
+      else
 			check = attackMenu(player, v.get(choice-1));
       
       if(check)
          v.remove(choice-1);
+         
+      return v;
    }
    
-      
-   public static boolean combat(character attacker, character defender)
+   //////////////////////////////
+   //Passes in an attacker and defender character
+   //Checks to see if the attacker misses the defender
+   //If hit, the dmg is created and subtracted from the 
+   //    the defender's def stat
+   //If misses, it is printed
+   //Checks the defender's life after the take
+   //If the life is below 0, the defender is removed.
+   //////////////////////////////
+   public boolean battle(Character attacker, Character defender)
    {
       System.out.println(attacker.getName() + " attacks " + defender.getName());
       int evasion = defender.getEva();
@@ -266,31 +293,40 @@ public class Encounter
       else
          System.out.println(attacker.getName() + " missed.");
    }//End of Combat()
-      
-   public void flee(Character enemy1, Character enemy2, Character enemy3, Character enemy4)
+   
+   
+   //////////////////////////////
+   //Set the enemies life to 0
+   //Call setFlee() method
+   //////////////////////////////   
+   public void flee(ArrayList<BadGuy> v)
    {
       System.out.println("You ran away");
-      if(enemy1 != null)
-         enemy1.setHp(0);
-      if(enemy2 != null)
-         enemy2.setHp(0);
-      if(enemy3 != null)
-         enemy3.setHp(0);
-      if(enemy4 != null)
-         enemy4.setHp(0);
+      for(int i = 0; i < v.size(); i++)
+      {
+         v.get(i).setHp(0);
+      }
       setFlee();
    }
    
+   
+   //////////////////////////////
+   //Set boolean flee to true
+   ////////////////////////////// 
    public void setFlee()
    {
       flee = true;
    }
    
+   
+   //////////////////////////////
+   //Randomly generate a number to return to select a hero.
+   ////////////////////////////// 
    public int enemySelectHero(int i)
    {
       Random randomGenerator = new Random();
 		int choice = randomGenerator.nextInt(i);
 		return choice;
    }
-*/
+
 } //End of Battle Class
