@@ -5,6 +5,7 @@ public class MapTest
 
    public static void main(String args[]) 
    {	  
+        boolean gameOver = false;  
 		  String mapChoice = Menu.getMapChoice();
 		  PlayerMap myMap = new PlayerMap(mapChoice);
         myMap.printMap(myMap);  
@@ -17,9 +18,11 @@ public class MapTest
 				boolean validMove = myPlayer.testMovePlayer(direction, myMap);
 				if(validMove); 
 					myMap.updateMapForPlayerLocation(myPlayer.getXCoord(), myPlayer.getYCoord());
-					
+               gameOver = myPlayer.getGameState(); 
 					myMap.printPlayerMap(myMap);
-				}while(direction != 0);  
+				}while(direction != 0 && gameOver == false); 
+            
+            System.out.println("You reached the exit! Game Over!!"); 
    }//end main
 
 }//end class
