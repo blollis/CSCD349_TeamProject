@@ -12,7 +12,7 @@ public abstract class Character {
 		damageMin = 0;
 		damageMax = 0;
 		hitChance = 0D;
-
+ 
 	}//close DungeonCharacter
 
 	public void setName(String nameInput) {

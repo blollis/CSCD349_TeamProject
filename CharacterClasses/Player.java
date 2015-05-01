@@ -1,29 +1,17 @@
-import java.util.*;
-import java.io.*;
-import java.util.Random;
-import java.util.Scanner;
-
-public class Party {
-   private ArrayList<Character> partyMembers;
-   private int xCoord; 
+public class Player
+{
+	private int xCoord; 
 	private int yCoord; 
    private boolean gameOver; 
-   
-	public Party(int x, int y) {
-   
-   	this.xCoord = x; 
+
+	public Player(int x, int y) 
+	{
+		this.xCoord = x; 
 		this.yCoord = y; 
-      this.gameOver = false;
-      ArrayList<Character> partyMembers = new ArrayList<Character>(); 
-      this.partyMembers = partyMembers;  
-   
-	}//close
-   
-   public void addMember(Character newMember) {
-      this.partyMembers.add(newMember);  
-   }
-   
-   public boolean testMovePlayer(int direction, PlayerMap myMap)
+      this.gameOver = false; 
+	}
+	
+	public boolean testMovePlayer(int direction, PlayerMap myMap)
 	{
 		int x = this.getXCoord();
 		int y = this.getYCoord(); 
@@ -103,5 +91,5 @@ public class Party {
 	{
 	   this.gameOver = gameState; 
 	}
-
-}//close
+	
+}
