@@ -111,6 +111,11 @@ public abstract class Character
       }
       
       return false;
-   }//close checkForLife  
+   }//close checkForLife 
+   
+   public String charInfo() 
+   {
+      return (this.name + ": " + this.getHP() + "HP");
+   } 
 	
 }

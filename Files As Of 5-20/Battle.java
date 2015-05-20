@@ -14,14 +14,20 @@ public class Battle
    }//close Battle EVC
 
    private Party generateEnemies()
-	{
-		int enemyCount = randomGenerator.nextInt(goodGuys.size());
+	{            
+      int enemyCount = randomGenerator.nextInt(goodGuys.size() - 1) + 1;
       
       Party badGuys = new Party();
       
-      for (int i = 0; i <= enemyCount; i++) {         
-         badGuys.addMember(new Ogre());
+      for (int i = 0; i <= enemyCount; i++) { //had to change here too dont forget        
+         int badGuyID = randomGenerator.nextInt(100);
+         
+         BadGuy bg = BadGuyFactory.createBadGuy(badGuyID);
+         
+         badGuys.addMember(bg);
       }
+      
+      System.out.println(); 
       
       return badGuys;
       

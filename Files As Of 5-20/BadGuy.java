@@ -6,12 +6,14 @@ public abstract class BadGuy extends Character
 	protected double chanceToHeal;
 	protected int healMin;
 	protected int healMax;
+   protected int droppedXP;
 
 	public BadGuy() 
    {
 		super();
 		healMin = 0;
 		healMax = 0;
+      droppedXP = 0;
 	}//close BadGuy
    
    public void attack(Character incomingCharacter, int choiceInput) 
@@ -83,5 +85,10 @@ public abstract class BadGuy extends Character
    public boolean validAttackChoice(int x) {
       return true;
    }
+
+	public int  getDroppedXP() 
+   {
+		return droppedXP;
+	}//close getchanceToHeal
    
 }//close BadGuy

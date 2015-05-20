@@ -1,14 +1,11 @@
-import java.util.Random;
-import java.util.Scanner;
-
 public class Ogre extends BadGuy 
 {
 	
    public Ogre() 
    {
 		//DVC
-		super();
-		HP = 80;
+		HPMax = 80;
+      HP = HPMax;
 		hitChance = 0.6;
 		damageMin = 30;
 		damageMax = 60;
@@ -16,9 +13,10 @@ public class Ogre extends BadGuy
 		healMin = 30;
 		healMax = 60;
       speed = 8;
+      droppedXP = 8;
 
-		super.setName("Oddly the Ogre");
+		super.setName("Ogre");
 
 	}//close Ogre
    
-}//close BadGuy
+}//close Ogre

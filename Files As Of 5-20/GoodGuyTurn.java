@@ -2,10 +2,15 @@ import java.util.*;
 
 public class GoodGuyTurn extends BattleTurn 
 {
+   protected Random randomGenerator = new Random();
+   
    public int chooseAttack(Character currentAttacker)
    {
       //allow user to choose an attack
-      System.out.println("Choose an attack:\t1. Regular Attack ");      
+      GoodGuy attacker = (GoodGuy)currentAttacker;
+      
+      System.out.println("Choose an attack: ");
+      attacker.printAttacks();      
    		
       Scanner kb = new Scanner(System.in);
       
@@ -15,7 +20,7 @@ public class GoodGuyTurn extends BattleTurn
       {
          try 
          {
-   		  choice = kb.nextInt();
+   		  choice = kb.nextInt() - 1;
          } 
          catch (InputMismatchException e) 
          {
@@ -57,13 +62,25 @@ public class GoodGuyTurn extends BattleTurn
 
    }
    
-   public void checkDefenderLife(Party defenders, Character currentDefender, int currentDefendersPos)
+   public void checkDefenderLife(Character currentAttacker, Party defenders, Character currentDefender, int currentDefendersPos)
    {
       if (currentDefender.checkForLife() == false) 
       {
-         System.out.println("You defeated " + currentDefender.getName() + "!");
-   
-         defenders.removeMember(currentDefendersPos);  
+         System.out.println("You defeated " + currentDefender.getName() + "!\n"); 
+         
+         //attacker gains XP if they killed the defender
+         
+         BadGuy defender = (BadGuy)currentDefender;
+         
+         int gainedXP = defender.getDroppedXP();
+         
+         GoodGuy attacker = (GoodGuy)currentAttacker;
+          
+         attacker.setXP(attacker.getXP() +gainedXP);
+         
+         attacker.updateLevel(); 
+         
+         defenders.removeMember(currentDefendersPos);
                            
       }  
    }  

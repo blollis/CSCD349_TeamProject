@@ -15,12 +15,12 @@ public class BadGuyTurn extends BattleTurn
  
    }
    
-   public void checkDefenderLife(Party defenders, Character currentDefender, int currentDefendersPos)
+   public void checkDefenderLife(Character currentAttacker, Party defenders, Character currentDefender, int currentDefendersPos)
    {
 
       if (currentDefender.checkForLife() == false) 
       {
-         System.out.println(currentDefender.getName() + " was defeated!");
+         System.out.println(currentDefender.getName() + " was defeated!\n");
    
          defenders.removeMember(currentDefendersPos);
                            

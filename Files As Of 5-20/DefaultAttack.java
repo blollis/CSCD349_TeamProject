@@ -2,11 +2,16 @@ import java.util.*;
 
 public class DefaultAttack implements Attack
 {
-   String attackName;
+   private String attackName;
    
    public DefaultAttack() 
    {
       attackName = "Default Attack";
+   }
+   
+   public String getName()
+   {
+      return attackName;
    }
    
    public void useAttack(Character attacker, Character defender) 

@@ -32,7 +32,7 @@ public abstract class BattleTurn
       Character currentDefender = defenders.getMember(currentDefendersPos);
       
       executeAttack(currentAttacker, currentDefender, choice);
-      checkDefenderLife(defenders, currentDefender, currentDefendersPos);
+      checkDefenderLife(currentAttacker, defenders, currentDefender, currentDefendersPos);
       advanceTurnOrder(attackers, defenders);  
             
       
@@ -54,7 +54,7 @@ public abstract class BattleTurn
 
    }
    
-   abstract void checkDefenderLife(Party defenders, Character currentDefender, int defendersPos); 
+   abstract void checkDefenderLife(Character currentAttacker, Party defenders, Character currentDefender, int defendersPos); 
    
    public void advanceTurnOrder(Party attackers, Party defenders) 
    {

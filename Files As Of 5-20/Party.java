@@ -64,7 +64,7 @@ public class Party {
       {
          currCharacter = this.getMember(i);
          
-         System.out.println((i + 1) + ". " + currCharacter.getName() + ": " + currCharacter.getHP() + "HP");
+         System.out.println((i + 1) + ". " + currCharacter.charInfo());
       }
       
       System.out.println("");

@@ -6,7 +6,7 @@ public class Attacks {
 	public Attacks() 
    {
       ArrayList<Attack> currentAttacks = new ArrayList<Attack>(); 
-      this.attacks = attacks;  
+      this.attacks = currentAttacks;  
    
 	}//close Party
    
@@ -29,4 +29,5 @@ public class Attacks {
    {
       return attacks.get(i);
    }   
+   
 }   
