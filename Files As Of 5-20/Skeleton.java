@@ -4,16 +4,16 @@ public class Skeleton extends BadGuy
    public Skeleton() 
    {
 		//DVC
-		HPMax = 80;
+		HPMax = 20;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 30;
-		damageMax = 60;
-		chanceToHeal = 0.1;
-		healMin = 30;
-		healMax = 60;
-      speed = 8;
-      droppedXP = 8;
+		hitChance = 0.8;
+		damageMin = 1;
+		damageMax = 8;
+		chanceToHeal = 0.3;
+		healMin = 1;
+		healMax = 12;
+      speed = 14;
+      droppedXP = 5;
 
 		super.setName("Skeleton");
 

@@ -4,15 +4,15 @@ public class Gremlin extends BadGuy
    public Gremlin() 
    {
 		//DVC
-		HPMax = 80;
+		HPMax = 30;
       HP = HPMax;
 		hitChance = 0.6;
-		damageMin = 30;
-		damageMax = 60;
-		chanceToHeal = 0.1;
-		healMin = 30;
-		healMax = 60;
-      speed = 8;
+		damageMin = 1;
+		damageMax = 10;
+		chanceToHeal = 0.3;
+		healMin = 1;
+		healMax = 10;
+      speed = 17;
       droppedXP = 8;
 
 		super.setName("Gremlin");

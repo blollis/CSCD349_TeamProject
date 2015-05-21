@@ -4,11 +4,11 @@ public class Necromancer extends GoodGuy
 	public Necromancer()
    {
 		//DVC
-		HPMax = 120;
+		HPMax = 50;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 60;
-		damageMax = 95;
+		hitChance = 0.9;
+		damageMin = 1;
+		damageMax = 10;
       speed = 10;
       
       super.setName("Necromancer");

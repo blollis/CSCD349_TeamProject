@@ -4,12 +4,12 @@ public class Druid extends GoodGuy
 	public Druid()
    {
 		//DVC
-		HPMax = 120;
+		HPMax = 50;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 60;
-		damageMax = 95;
-      speed = 10;
+		hitChance = 0.7;
+		damageMin = 1;
+		damageMax = 12;
+      speed = 12;
       
       super.setName("Druid");
 

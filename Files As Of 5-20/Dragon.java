@@ -4,16 +4,16 @@ public class Dragon extends BadGuy
    public Dragon() 
    {
 		//DVC
-		HPMax = 80;
+		HPMax = 75;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 30;
-		damageMax = 60;
+		hitChance = 0.8;
+		damageMin = 1;
+		damageMax = 20;
 		chanceToHeal = 0.1;
-		healMin = 30;
-		healMax = 60;
-      speed = 8;
-      droppedXP = 8;
+		healMin = 1;
+		healMax = 20;
+      speed = 15;
+      droppedXP = 20;
 
 		super.setName("Dragon");
 

@@ -4,16 +4,16 @@ public class Ogre extends BadGuy
    public Ogre() 
    {
 		//DVC
-		HPMax = 80;
+		HPMax = 45;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 30;
-		damageMax = 60;
+		hitChance = 0.7;
+		damageMin = 1;
+		damageMax = 12;
 		chanceToHeal = 0.1;
-		healMin = 30;
-		healMax = 60;
+		healMin = 1;
+		healMax = 20;
       speed = 8;
-      droppedXP = 8;
+      droppedXP = 9;
 
 		super.setName("Ogre");
 

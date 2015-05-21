@@ -4,12 +4,12 @@ public class Cleric extends GoodGuy
 	public Cleric()
    {
 		//DVC
-		HPMax = 120;
+		HPMax = 90;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 60;
-		damageMax = 95;
-      speed = 10;
+		hitChance = 0.9;
+		damageMin = 1;
+		damageMax = 10;
+      speed = 8;
       
       super.setName("Cleric");
 

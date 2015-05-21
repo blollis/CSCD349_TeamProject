@@ -4,12 +4,12 @@ public class Wizard extends GoodGuy
 	public Wizard()
    {
 		//DVC
-		HPMax = 120;
+		HPMax = 40;
       HP = HPMax;
-		hitChance = 0.6;
-		damageMin = 60;
-		damageMax = 95;
-      speed = 10;
+		hitChance = 0.8;
+		damageMin = 1;
+		damageMax = 20;
+      speed = 15;
       
       super.setName("Wizard");
 

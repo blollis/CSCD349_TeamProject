@@ -4,16 +4,16 @@ public class Orc extends BadGuy
    public Orc() 
    {
 		//DVC
-		HPMax = 80;
+		HPMax = 50;
       HP = HPMax;
 		hitChance = 0.6;
-		damageMin = 30;
-		damageMax = 60;
+		damageMin = 1;
+		damageMax = 10;
 		chanceToHeal = 0.1;
-		healMin = 30;
-		healMax = 60;
-      speed = 8;
-      droppedXP = 8;
+		healMin = 1;
+		healMax = 20;
+      speed = 13;
+      droppedXP = 10;
 
 		super.setName("Orc");
 
