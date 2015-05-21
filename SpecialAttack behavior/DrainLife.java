@@ -28,19 +28,7 @@ public class DrainLife implements SpecialAttack
    
 				System.out.println(currentGoodGuy.getName() + " healed himself! He now has " + currentBadGuy.getHP() + " HP points.\n");
             
-            //OR xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            
-            /*//randomly generate amount to be healed within heal range
-            int healAmountTemp = randomGenerator.nextInt((currentBadGuy.getHealMax() - currentBadGuy.getHealMin()) + 1) + currentBadGuy.getHealMin();
-                  
-            //set new HP for hero
-				currentGoodGuy.setHP(currentGoodGuy.getHP() + healAmountTemp);
-   
-				System.out.println(currentGoodGuy.getName() + " healed himself! He now has " + currentBadGuy.getHP() + " HP points.\n");
-            
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            */
-               
+                           
    		}//close hitChance if
          
          //else your attack fails
