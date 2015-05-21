@@ -32,7 +32,7 @@ public class Bats implements SpecialAttack
    private void batAttack(Character attacker, BadGuy currentBadGuy, int i)
    {
       //randomly generate amount of damage to be done within damage range for one bat
-      int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax / 4) - attacker.damageMin) + 1) + attacker.damageMin;
+      int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax / 3) - attacker.damageMin) + 1) + attacker.damageMin;
          
       //take HP from monster
   		currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);

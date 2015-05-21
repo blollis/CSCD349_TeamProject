@@ -11,7 +11,7 @@ public class PerciseHit implements SpecialAttack
          //Skips the chance to hit so there is 100% chance to hit
 
   			//randomly generate amount of damage to be done within damage range
-         int damageAmountTemp = randomGenerator.nextInt((attacker.damageMax - attacker.damageMin) + 1) + attacker.damageMin;
+         int damageAmountTemp = randomGenerator.nextInt(attacker.damageMax - attacker.damageMin)+ 1;
         
          //take HP from monster
  			currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
