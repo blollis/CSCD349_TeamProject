@@ -11,7 +11,7 @@ public class Zombie extends BadGuy
 		damageMax = 6;
 		chanceToHeal = 0.9;
 		healMin = 1;
-		healMax = 5;
+		healMax = 1;
       speed = 5;
       droppedXP = 5;
 

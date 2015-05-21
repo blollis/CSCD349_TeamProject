@@ -9,7 +9,7 @@ public class ManBearPig extends BadGuy
 		hitChance = 0.6;
 		damageMin = 1;
 		damageMax = 15;
-		chanceToHeal = 0.5;
+		chanceToHeal = 0.4;
 		healMin = 1;
 		healMax = 5;
       speed = 8;

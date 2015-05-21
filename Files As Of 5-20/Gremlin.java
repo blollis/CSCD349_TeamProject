@@ -11,7 +11,7 @@ public class Gremlin extends BadGuy
 		damageMax = 10;
 		chanceToHeal = 0.3;
 		healMin = 1;
-		healMax = 10;
+		healMax = 5;
       speed = 17;
       droppedXP = 8;
 

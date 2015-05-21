@@ -11,7 +11,7 @@ public class Skeleton extends BadGuy
 		damageMax = 8;
 		chanceToHeal = 0.3;
 		healMin = 1;
-		healMax = 12;
+		healMax = 6;
       speed = 14;
       droppedXP = 5;
 
