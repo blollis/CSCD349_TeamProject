@@ -13,13 +13,16 @@ public class Battle
       this.badGuys = generateEnemies();
    }//close Battle EVC
 
+   //calls the badGuyFactory to generate a party of enemies to fight
    private Party generateEnemies()
 	{            
-      int enemyCount = randomGenerator.nextInt(goodGuys.size() - 1) + 1;
+      //determines a party size for the enemies no larger than the goodGuys party
+      int enemyCount = randomGenerator.nextInt(goodGuys.size()) + 1;
       
       Party badGuys = new Party();
       
-      for (int i = 0; i <= enemyCount; i++) { //had to change here too dont forget        
+      //generates and adds enemies
+      for (int i = 0; i < enemyCount; i++) {        
          int badGuyID = randomGenerator.nextInt(100);
          
          BadGuy bg = BadGuyFactory.createBadGuy(badGuyID);
@@ -37,23 +40,28 @@ public class Battle
    {
    	System.out.println("\nYou've been challenged! Let the battle begin!\n");
       
+      //boolean changes if user flees the battle
       boolean fled = false;
       
       //while loop to carry out battle
    	while (checkPartiesAlive() && fled == false) 
       {
+         //get current turn positions in each party
          int currGoodPos = goodGuys.getTurnPos();
          int currBadPos = badGuys.getTurnPos();
          
+         //get current goodGuy and badGuy based on turn positions
          Character currentGoodGuy = goodGuys.getMember(currGoodPos);
          Character currentBadGuy = badGuys.getMember(currBadPos);
          
+         //create a turn for each current character
          GoodGuyTurn turnGoodGuy = new GoodGuyTurn();
          BadGuyTurn turnBadGuy = new BadGuyTurn();
          
          //if currentGoodGuy is faster, then he goes first
          if (currentGoodGuy.getSpeed() >= currentBadGuy.getSpeed()) 
          {
+            //executes the good guy's turn, changes the boolean if they flee
             fled = turnGoodGuy.executeTurn(goodGuys, badGuys); 
             
             //if both parties are still alive, then bad guy can attack
@@ -83,24 +91,24 @@ public class Battle
                break;
             } 
             
- 
          }//close else 
-         
 
       }//while party alive
       
-      //print results
+      //print results of battle
       printResult();
                   
       return fled;
 
    }//close fight
       
+   //makes sure both parties still have living members
    public boolean checkPartiesAlive() 
    {
       return goodGuys.size() > 0 && badGuys.size() > 0;  
    }
    
+   //prints results of the battle based on party sizes
    public void printResult() 
    {
       if (badGuys.size() <= 0)

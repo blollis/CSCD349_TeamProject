@@ -2,7 +2,6 @@ import java.util.*;
 
 public abstract class GoodGuy extends Character 
 {
-   protected Attacks attacksInventory = new Attacks();
    protected int XP = 0;
    protected int level = 0;
    protected Inventory inventory = new Inventory();
@@ -16,31 +15,7 @@ public abstract class GoodGuy extends Character
             
 	}//close GoodGuy
 
-   public void attack(Character incomingCharacter, int choiceInput) 
-   {
-	   Attack attackToExecute = attacksInventory.getAttack(choiceInput);
       
-      attackToExecute.useAttack(this, incomingCharacter);
-
- 	}//close attack 
-   
-   public void printAttacks() 
-   {
-      for(int i = 0; i < attacksInventory.size(); i++) 
-      {
-         System.out.println((i+1) + ". " + attacksInventory.getAttack(i).getName());
-      }
-   }
-
-   public boolean validAttackChoice(int x) 
-   {
-      if (x >= 0 && x < attacksInventory.size()) {
-         return true;
-      }
-      
-      return false;
-   }
-   
    public void setXP(int x) 
    {
       this.XP = x;
@@ -98,5 +73,10 @@ public abstract class GoodGuy extends Character
    {
       return (this.name + " - Level " + this.getLevel() + ": " + this.getHP() + "HP");
    } 
+   
+   public String printStats() 
+   {
+      return (this.name + ": HP " + this.getHP() + ", Max Damage " + this.getDamageMax()  + ", Hit Chance " + this.getHitChance());  
+   }
 	   
 }//close GoodGuy

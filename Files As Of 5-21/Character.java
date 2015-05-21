@@ -7,6 +7,7 @@ public abstract class Character
 	protected int damageMax;
 	protected double hitChance;
    protected int speed;
+   protected Attacks attacksInventory = new Attacks();
 
 	public Character() 
    {
@@ -21,10 +22,6 @@ public abstract class Character
 
 	}//close DungeonCharacter
    
-   public abstract void attack(Character toAttack, int choiceInput);
-   
-   public abstract boolean validAttackChoice(int x);
-
 	public void setName(String nameInput) 
    {
 		name = nameInput;
@@ -113,9 +110,37 @@ public abstract class Character
       return false;
    }//close checkForLife 
    
+   //prints basic character info (name and HP)
    public String charInfo() 
    {
       return (this.name + ": " + this.getHP() + "HP");
    } 
+   
+   //all characters attack the same
+   public final void attack(Character incomingCharacter, int choiceInput) 
+   {
+      Attack attackToExecute = attacksInventory.getAttack(choiceInput);
+      
+      attackToExecute.useAttack(this, incomingCharacter);
+   
+   }//close attack 
+   
+   public void printAttacks() 
+   {
+      for(int i = 0; i < attacksInventory.size(); i++) 
+      {
+         System.out.println((i+1) + ". " + attacksInventory.getAttack(i).getName());
+      }
+   }
+
+   public boolean validAttackChoice(int x) 
+   {
+      if (x >= 0 && x < attacksInventory.size()) {
+         return true;
+      }
+      
+      return false;
+   }
+
 	
 }

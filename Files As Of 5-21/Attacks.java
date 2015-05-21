@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Attacks {
+   //array list holds all of the attacks the character currently has
    private ArrayList<Attack> attacks;
   
 	public Attacks() 
