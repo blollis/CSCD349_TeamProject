@@ -1,7 +1,20 @@
+import java.util.*;
+
 public class FireBall implements SpecialAttack
 {
-   public void specialAttack(Character attacker, Character defender)
-   {
+      private String attackName;
+   
+      public DefaultAttack() 
+      {
+         attackName = "Heal";
+      }
+   
+      public String getName()
+      {
+         return attackName;
+      }
+
+      
       public void useAttack(Character attacker, Character defender) 
       {
          BadGuy currentBadGuy = (BadGuy)defender;
