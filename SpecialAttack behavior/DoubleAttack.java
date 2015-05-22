@@ -1,5 +1,19 @@
-public class DoubleAttack implements SpecialAttack
+import java.util.*;
+
+public class DoubleAttack implements Attack
 {
+      private String attackName;
+   
+      public DefaultAttack() 
+      {
+         attackName = "Default Attack";
+      }
+   
+      public String getName()
+      {
+         return attackName;
+      }
+      
       //perform useAttack two times;
       public void useAttack(Character attacker, Character defender) 
       {

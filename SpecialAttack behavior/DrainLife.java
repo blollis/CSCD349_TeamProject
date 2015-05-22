@@ -1,7 +1,19 @@
-public class DrainLife implements SpecialAttack
+import java.util.*;
+
+public class DrainLife implements Attack
 {
-   public void specialAttack(Character attacker, Character defender)
-   {
+      private String attackName;
+   
+      public DefaultAttack() 
+      {
+         attackName = "Drain Life";
+      }
+   
+      public String getName()
+      {
+         return attackName;
+      }
+   
       public void useAttack(Character attacker, Character defender) 
       {
          BadGuy currentBadGuy = (BadGuy)defender;

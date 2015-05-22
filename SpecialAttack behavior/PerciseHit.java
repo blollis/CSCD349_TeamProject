@@ -1,7 +1,19 @@
-public class PerciseHit implements SpecialAttack
+import java.util.*;
+
+public class PerciseHit implements Attack
 {
-   public void specialAttack(Character attacker, Character defender)
-   {
+      private String attackName;
+   
+      public DefaultAttack() 
+      {
+         attackName = "Percise Hit";
+      }
+   
+      public String getName()
+      {
+         return attackName;
+      }
+      
       public void useAttack(Character attacker, Character defender) 
       {
          BadGuy currentBadGuy = (BadGuy)defender;

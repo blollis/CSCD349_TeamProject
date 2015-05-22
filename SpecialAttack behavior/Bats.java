@@ -1,5 +1,19 @@
-public class Bats implements SpecialAttack
+import java.util.*;
+
+public class Bats implements Attack
 {
+   private String attackName;
+   
+   public DefaultAttack() 
+   {
+      attackName = "Summon Bats";
+   }
+   
+   public String getName()
+   {
+      return attackName;
+   }
+   
    public void useAttack(Character attacker, Character defender) 
    {
       BadGuy currentBadGuy = (BadGuy)defender;

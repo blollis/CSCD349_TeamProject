@@ -1,6 +1,20 @@
-public class Heal implements SpecialAttack
+import java.util.*;
+
+public class Heal implements Attack
 {
-   public void specialAttack(Character attacker, Character defender)
+   private String attackName;
+   
+   public DefaultAttack() 
+   {
+      attackName = "Heal";
+   }
+   
+   public String getName()
+   {
+      return attackName;
+   }
+   
+   public void useAttack(Character attacker, Character defender)
    {
       double healChanceTemp = randomGenerator.nextDouble();
 
