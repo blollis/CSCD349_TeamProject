@@ -27,7 +27,7 @@ public class PerciseHit implements Attack
         
          //take HP from monster
  			currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-  			System.out.println("Attack was successful for " + damageAmountTemp + " points damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+  			System.out.println("The hit will never miss, you hit for " + damageAmountTemp + " points damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
             
          //if statement to find out if monster is dead
  			if (currentBadGuy.checkForLife()) 

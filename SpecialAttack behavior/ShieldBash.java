@@ -1,12 +1,12 @@
 import java.util.*;
 
-public class FireBall implements SpecialAttack
+public class ShieldBash implements SpecialAttack
 {
       private String attackName;
    
       public DefaultAttack() 
       {
-         attackName = "Fire Ball";
+         attackName = "Shield Bash";
       }
    
       public String getName()
@@ -27,11 +27,11 @@ public class FireBall implements SpecialAttack
    		if (hitChanceTemp < attacker.hitChance) 
          {
    			//randomly generate amount of damage to be done within damage range
-            int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax * 2) - attacker.damageMin) + 1) + attacker.damageMin;
+            int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax) - attacker.damageMin) + 1) + attacker.damageMin + 5;
          
             //take HP from monster
    			currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-   			System.out.println("You casted a fire ball dealing " + damageAmountTemp + " points of damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+   			System.out.println("You bashed the enemy with the shield for " + damageAmountTemp + " points damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
             
             //if statement to find out if monster is dead
    			if (currentBadGuy.checkForLife()) 
