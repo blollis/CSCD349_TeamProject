@@ -30,6 +30,7 @@ public class CurrentMap
    }//close reachedExit 
 	
    //step 1 for creating a map
+   //builds a map by writing characters from a given file into a string object
    public char[][] buildMap(String filePath) 
    {
       ArrayList<String> lines = new ArrayList<String>();
@@ -63,11 +64,13 @@ public class CurrentMap
       }
       
       fillMap(lines); 
+      
       return map;    
              
    }//close buildMap
    
    //step 2 for creating a map
+   //fills the map with the characters from the string object, sets exit accordingly
    public void fillMap(ArrayList lines)
    {
       int a = map.length;
@@ -86,7 +89,8 @@ public class CurrentMap
          }
       }
    }//close fillMap
-	
+   
+	//allows user to choose a map (map choices are included as text files)
 	public static String getMapChoice()
 	{
       System.out.println("Welcome to Heroes and Monsters. Please choose a map difficulty: "); 
@@ -125,6 +129,7 @@ public class CurrentMap
 		return mapChoice;
 	}//close getMapChoice
    
+   //allows user to choose a direction to move
 	public static String getMoveDirection()
 	{
 		String dir = "X";
@@ -149,6 +154,7 @@ public class CurrentMap
       
 	}//close getMoveDirection
    
+   //checks that the direction the user asked is a valid direction choice
    private static boolean checkValidDirInput (String x)
    {
       if (x.compareToIgnoreCase("W") == 0) 
@@ -178,6 +184,7 @@ public class CurrentMap
    
    }//close checkValidDirInput
    
+   //gets the opposite direction from what the user just moved
    public String getOppositeDirection(String x)
    {
       if (x.compareToIgnoreCase("W") == 0) 
@@ -198,6 +205,7 @@ public class CurrentMap
       }
    }//close getOppositeDirection
    
+   //moves player the chosen direction
    public void movePlayer(String direction)
 	{
 		int x = this.partyX;
@@ -240,6 +248,7 @@ public class CurrentMap
 
 	}//close movePlayer
 	
+   //checks that the move that the player tried to make is a valid move and if they've reached the exit
 	public boolean checkIfValidMove(int x, int y)
 	{ 
 		char myChar = this.map[y][x];
@@ -256,6 +265,7 @@ public class CurrentMap
       return false; 
 	}//close checkIfValidMove 
    
+   //updates player's position on the map
    public void updateMapForPlayerLocation(int x, int y)
 	{
 		for(int i = 0; i < this.map.length; i++)

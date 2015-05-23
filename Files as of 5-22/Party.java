@@ -9,7 +9,6 @@ public class Party {
    
 	public Party() 
    {
-   
       this.partyActive = true;
       ArrayList<Character> partyMembers = new ArrayList<Character>(); 
       this.partyMembers = partyMembers;  
@@ -56,6 +55,7 @@ public class Party {
       turnPos++;
    }
    
+   //prints the stats for this party
    public void printStats()
    {
       Character currCharacter;
@@ -71,6 +71,7 @@ public class Party {
       
    }//close printStats
    
+   //regenerates a bit of health for each living party member
    public void regenerate()
    {
       Character currCharacter;

@@ -125,6 +125,7 @@ public abstract class Character
    
    }//close attack 
    
+   //prints a list of the character's attacks
    public void printAttacks() 
    {
       for(int i = 0; i < attacksInventory.size(); i++) 
@@ -133,6 +134,7 @@ public abstract class Character
       }
    }
 
+   //determines if attack number that was chosen is in the character's attacksInventory
    public boolean validAttackChoice(int x) 
    {
       if (x >= 0 && x < attacksInventory.size()) {
