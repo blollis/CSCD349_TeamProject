@@ -28,6 +28,6 @@ public class BadGuyFactory
          bg = new Dragon();
     
       return bg; 
-   }
+   }//end createBadGuy
 
-}
+}//end class

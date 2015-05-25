@@ -78,7 +78,7 @@ public class GoodGuyTurn extends BattleTurn
           
          attacker.setXP(attacker.getXP() +gainedXP);
          
-         attacker.updateLevel(); 
+         attacker.updateLevel(attacker); 
          
          defenders.removeMember(currentDefendersPos);
                            
