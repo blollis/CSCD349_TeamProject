@@ -7,9 +7,9 @@ public class Skeleton extends BadGuy
       super("Skeleton", 20, 1, 8, 0.8D, 14, 0.3D, 1, 6, 5);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new BoneSpear();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Skeleton
    

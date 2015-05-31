@@ -7,9 +7,9 @@ public class Dragon extends BadGuy
       super("Dragon", 75, 1, 20, 0.8D, 15, 0.1D, 1, 20, 20);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new FireBreath();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Dragon
    

@@ -7,9 +7,9 @@ public class Ogre extends BadGuy
       super("Ogre", 45, 1, 12, 0.7D, 8, 0.1D, 1, 20, 9);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new RockThrow();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Ogre
    

@@ -7,9 +7,9 @@ public class ManBearPig extends BadGuy
       super("ManBearPig", 60, 1, 20, 0.6D, 8, 0.4D, 1, 5, 10);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Slash();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close ManBearPig
    

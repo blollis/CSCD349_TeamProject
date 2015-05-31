@@ -4,7 +4,7 @@ public class FireBreath implements Attack
 {
    private String attackName;
    
-   public DefaultAttack() 
+   public FireBreath() 
    {
       attackName = "Fire Breth";
    }
@@ -21,14 +21,14 @@ public class FireBreath implements Attack
       Random randomGenerator = new Random();
 
  		//randomly generated hitChance temp determines if attack will be a success
-      double hitChanceTemp = randomGenerator.nextDouble();
+    double hitChanceTemp = randomGenerator.nextDouble();
       
- 		if (hitChanceTemp < attacker.hitChance) 
+ 		if (hitChanceTemp < attacker.getHitChance()) 
       {
          System.out.println("The dragon breathes fire on the hero! Its getting hot in here!");
   			
          //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax) - attacker.damageMin) + 1) + attacker.damageMin;
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();
          
          //take HP from monster
   		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
@@ -45,6 +45,3 @@ public class FireBreath implements Attack
            
    }//close useAttack()   
 }   
-   }//close useAttack()
-      
-}

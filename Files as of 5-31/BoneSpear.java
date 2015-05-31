@@ -4,7 +4,7 @@ public class BoneSpear implements Attack
 {
    private String attackName;
    
-   public DefaultAttack() 
+   public BoneSpear() 
    {
       attackName = "Bone Spear";
    }
@@ -23,13 +23,12 @@ public class BoneSpear implements Attack
  		//randomly generated hitChance temp determines if attack will be a success
       double hitChanceTemp = randomGenerator.nextDouble();
       
- 		if (hitChanceTemp < attacker.hitChance) 
+ 		if (hitChanceTemp < attacker.getHitChance()) 
       {
          System.out.println("The Skelington throws a Bone Spear! It was his own leg wtf?!?!?!");
   			
          //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax) - attacker.damageMin) + 1) + attacker.damageMin;
-         
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();           
          //take HP from monster
   		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
   		   System.out.println("It impales you for " + damageAmountTemp + " points of damage! " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.");
@@ -45,6 +44,3 @@ public class BoneSpear implements Attack
            
    }//close useAttack()   
 }   
-   }//close useAttack()
-     
-}

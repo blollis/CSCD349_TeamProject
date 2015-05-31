@@ -7,9 +7,9 @@ public class Gremlin extends BadGuy
       super("Gremlin", 30, 1, 10, 0.6D, 17, 0.3D, 1, 5, 6);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Scratch();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Gremlin
    

@@ -7,9 +7,9 @@ public class Orc extends BadGuy
       super("Orc", 50, 1, 10, 0.6D, 13, 0.1D, 1, 20, 10);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new BloodLust();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Orc
    

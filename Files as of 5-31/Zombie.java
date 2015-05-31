@@ -7,9 +7,10 @@ public class Zombie extends BadGuy
       super("Zombie", 30, 1, 6, 0.9D, 5, 0.9D, 1, 5, 5);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Bite();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
+
 
 	}//close Zombie
    

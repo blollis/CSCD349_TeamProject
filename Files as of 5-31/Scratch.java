@@ -4,7 +4,7 @@ public class Scratch implements Attack
 {
    private String attackName;
    
-   public DefaultAttack() 
+   public Scratch() 
    {
       attackName = "Scratch";
    }
@@ -23,13 +23,12 @@ public class Scratch implements Attack
  		//randomly generated hitChance temp determines if attack will be a success
       double hitChanceTemp = randomGenerator.nextDouble();
       
- 		if (hitChanceTemp < attacker.hitChance) 
+ 		if (hitChanceTemp < attacker.getHitChance()) 
       {
          System.out.println("The goblin scratches the hero! Who does that?!");
   			
          //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax) - attacker.damageMin) + 1) + attacker.damageMin;
-         
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();         
          //take HP from monster
   		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
   		   System.out.println("You are scratched for " + damageAmountTemp + " points of damage! " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.");
@@ -45,6 +44,3 @@ public class Scratch implements Attack
            
    }//close useAttack()   
 }     
-   }//close useAttack
-   
-}

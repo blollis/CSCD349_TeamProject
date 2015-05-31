@@ -7,9 +7,9 @@ public class Cyclops extends BadGuy
       super("Cyclops", 50, 1, 20, 0.2D, 10, 0.1D, 1, 20, 8);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Smash();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
 
 	}//close Cyclops
    
