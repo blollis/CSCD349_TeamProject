@@ -1,3 +1,5 @@
-public interface Item {
-   abstract void useItem(Character attacker, Character defender);   
+public interface Item 
+{
+   abstract String getName();
+   abstract void useItem(GoodGuy user);   
 }

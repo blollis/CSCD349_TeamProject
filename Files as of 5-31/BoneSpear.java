@@ -15,9 +15,7 @@ public class BoneSpear implements Attack
    }
    
    public void useAttack(Character attacker, Character defender) 
-   {
-      GoodGuy currentGoodGuy = (GoodGuy)defender;
-      
+   {      
       Random randomGenerator = new Random();
 
  		//randomly generated hitChance temp determines if attack will be a success
@@ -25,20 +23,21 @@ public class BoneSpear implements Attack
       
  		if (hitChanceTemp < attacker.getHitChance()) 
       {
-         System.out.println("The Skelington throws a Bone Spear! It was his own leg wtf?!?!?!");
+         System.out.println(attacker.getName() + " throws a Bone Spear! It was his own leg wtf?!?!?!");
   			
          //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();           
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 10) + attacker.getDamageMin();
+                    
          //take HP from monster
-  		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
-  		   System.out.println("It impales you for " + damageAmountTemp + " points of damage! " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.");
+  		   defender.setHP(defender.getHP() - damageAmountTemp);
+  		   System.out.println(attacker.getName() + " impales " + defender.getName() + " for " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
                           
       }//close hitChance if
          
       //else your attack fails
   		else 
       {
-  			System.out.println("The attack was unsuccessful. " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.\n");       
+  			System.out.println("The attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
  		}//else else
 
            

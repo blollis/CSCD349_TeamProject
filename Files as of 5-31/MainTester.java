@@ -147,7 +147,7 @@ public class MainTester
             {
                kb.nextLine();
                
-               System.out.println("\nPlease enter a number from the list of bad guys.");
+               System.out.println("\nPlease enter a number from the list of good guys.");
             }//close try-catch
          }
          while (choice < 1 || choice > 8);

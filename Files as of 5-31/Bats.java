@@ -4,7 +4,7 @@ public class Bats implements Attack
 {
    private String attackName;
    
-   public DefaultAttack() 
+   public Bats() 
    {
       attackName = "Summon Bats";
    }

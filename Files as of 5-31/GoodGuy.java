@@ -11,7 +11,7 @@ abstract class GoodGuy extends Character
       this.XP = 0;
       
       //initialize inventory
-      inventory  = new Inventory();
+      this.inventory  = new Inventory();
       
       //set character level at creation time as zero
       this.level = new Level();
@@ -43,6 +43,44 @@ abstract class GoodGuy extends Character
    public void updateLevel(GoodGuy character)
    {
       this.level.updateLevel(character);
+   }
+   
+   public void addInventoryItem(Item item) 
+   {
+      this.inventory.addItem(item);
+   }
+   
+   public Item getInventoryItem(int x) 
+   {
+      Item item = this.inventory.getItem(x);
+      
+      this.inventory.removeItem(x);
+      
+      return item;
+   }
+   
+   public int getInventorySize()
+   {
+      return this.inventory.size();
+   }
+   
+   //prints a list of the character's current inventory
+   public void printInventory() 
+   {
+      for(int i = 0; i < inventory.size(); i++) 
+      {
+         System.out.println((i+1) + ". " + inventory.getItem(i).getName());
+      }
+   }
+
+   //determines if inventory number that was chosen is in the character's currentInventory
+   public boolean validInventoryChoice(int x) 
+   {
+      if (x >= 0 && x < attacksInventory.size()) {
+         return true;
+      }
+      
+      return false;
    }
       
    public String charInfo() 

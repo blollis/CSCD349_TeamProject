@@ -34,7 +34,7 @@ public class AttackBuff implements Attack
          
          //take HP from monster
   		   currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-  		   System.out.println(attacker.getName() +"'s max attack increased! He attacked " + currentBadGuy.getName() + " for " + damageAmountTemp + " points of damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+  		   System.out.println(attacker.getName() +"'s max attack increased! He attacked " + currentBadGuy.getName() + " for " + damageAmountTemp + " points of damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.\n");
                           
       }//close hitChance if
          

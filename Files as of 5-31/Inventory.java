@@ -6,9 +6,9 @@ public class Inventory {
 	public Inventory() 
    {
       ArrayList<Item> currentInventory = new ArrayList<Item>(); 
-      this.items = items;  
+      this.items = currentInventory;  
    
-	}//close Party
+	}
    
    public void addItem(Item newItem) 
    {

@@ -15,9 +15,7 @@ public class BloodLust implements Attack
    }
    
    public void useAttack(Character attacker, Character defender) 
-   {
-      GoodGuy currentGoodGuy = (GoodGuy)defender;
-      
+   {      
       Random randomGenerator = new Random();
 
  		//randomly generated hitChance temp determines if attack will be a success
@@ -25,20 +23,21 @@ public class BloodLust implements Attack
       
  		if (hitChanceTemp < attacker.getHitChance()) 
       {
-         System.out.println("The Orc goes into a Blood Lust Frenzy! He is swinging like some kinda crazy swinging thing!");
+         System.out.println(attacker.getName() + " goes into a Blood Lust Frenzy! He is swinging like some kinda crazy swinging thing!");
   			
-         //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();         
+         //randomly generate amount of damage to be done within damage range
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 15) + attacker.getDamageMin();    
+              
          //take HP from monster
-  		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
-  		   System.out.println("You are hit for " + damageAmountTemp + " points of damage! " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.");
+  		   defender.setHP(defender.getHP() - damageAmountTemp);
+  		   System.out.println(defender.getName() + " is hit for " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
                           
       }//close hitChance if
          
       //else your attack fails
   		else 
       {
-  			System.out.println("The attack was unsuccessful. " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.\n");       
+  			System.out.println("The attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
  		}//else else
 
            

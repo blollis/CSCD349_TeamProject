@@ -6,7 +6,7 @@ public class FireBreath implements Attack
    
    public FireBreath() 
    {
-      attackName = "Fire Breth";
+      attackName = "Fire Breath";
    }
    
    public String getName()
@@ -16,30 +16,26 @@ public class FireBreath implements Attack
    
    public void useAttack(Character attacker, Character defender) 
    {
-      GoodGuy currentGoodGuy = (GoodGuy)defender;
-      
       Random randomGenerator = new Random();
 
  		//randomly generated hitChance temp determines if attack will be a success
-    double hitChanceTemp = randomGenerator.nextDouble();
+      double hitChanceTemp = randomGenerator.nextDouble();
       
- 		if (hitChanceTemp < attacker.getHitChance()) 
-      {
-         System.out.println("The dragon breathes fire on the hero! Its getting hot in here!");
-  			
-         //randomly generate amount of damage to be done within damage range for one bat
-         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin();
+ 		if (hitChanceTemp < attacker.getHitChance() - 0.2) 
+      {  			
+         //randomly generate amount of damage to be done within damage range
+         int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 20) + attacker.getDamageMin();
          
          //take HP from monster
-  		   currentGoodGuy.setHP(currentGoodGuy.getHP() - damageAmountTemp);
-  		   System.out.println("You get scorched by dragon flames for " + damageAmountTemp + " points of damage AND you lose your eyebrows! " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.");
+  		   defender.setHP(defender.getHP() - damageAmountTemp);
+  		   System.out.println(attacker.getName() + " blows a fiery breath! " + defender.getName() + " gets scorched for " + damageAmountTemp + " points of damage AND lose their eyebrows! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
                           
       }//close hitChance if
          
       //else your attack fails
   		else 
       {
-  			System.out.println("The attack was unsuccessful. " + currentGoodGuy.getName() + " has " + currentGoodGuy.getHP() + " hit points remaining.\n");       
+  			System.out.println("The attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
  		}//else else
 
            

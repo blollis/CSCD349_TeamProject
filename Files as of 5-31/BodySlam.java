@@ -30,7 +30,7 @@ public class BodySlam implements Attack
          
          //take HP from monster
   		   defender.setHP(defender.getHP() - damageAmountTemp);
-  		   System.out.println(attacker.getName() + " tackled " + defender.getName() + " for " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
+  		   System.out.println(attacker.getName() + " tackled " + defender.getName() + " for " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
                           
       }//close hitChance if
          

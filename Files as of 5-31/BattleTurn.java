@@ -12,8 +12,26 @@ public abstract class BattleTurn
       //calls menu choice, which is overwritten in goodGuyTurn to display options, does nothing but return 1 for badGuyTurn
       int menuChoice = optionsMenu(currentAttacker);
       
+      //use item instead of attacking
+      if (menuChoice == 2)
+      {
+         GoodGuy user = (GoodGuy) currentAttacker;
+         
+         if(user.getInventorySize() != 0)
+         {
+            useItem(user);
+
+         }
+         else 
+         {
+            System.out.println(currentAttacker.getName() + "'s inventory is empty. They must stand and fight!\n");
+                     
+            menuChoice = 1;
+         }      
+      }
+      
       //prints stats menu if goodGuy chose this option
-      while (menuChoice == 2) {
+      while (menuChoice == 3) {
          System.out.println("Current good guys: ");
          attackers.printStats();
          
@@ -24,23 +42,29 @@ public abstract class BattleTurn
       }  
        
       //flees if goodGuy chose this option
-      if (menuChoice == 3) 
+      if (menuChoice == 4) 
          return true;   
       
-      //allows character to choose attack from attacksInventory
-      int choice = chooseAttack(currentAttacker);
+      //carries out attack if menu choice equals 1
+      if (menuChoice == 1) 
+      {
+         //allows character to choose attack from attacksInventory
+         int choice = chooseAttack(currentAttacker);
+         
+         //allows character to choose an opponent 
+         int currentDefendersPos = chooseOpponent(defenders);
+         
+         //gets currentDefender (so we can pass this as a parameter)
+         Character currentDefender = defenders.getMember(currentDefendersPos);
+         
+         //carries out attack and clean up steps
+         executeAttack(currentAttacker, currentDefender, choice);
+         checkDefenderLife(currentAttacker, defenders, currentDefender, currentDefendersPos);
+          
+      }    
       
-      //allows character to choose an opponent 
-      int currentDefendersPos = chooseOpponent(defenders);
+      advanceTurnOrder(attackers, defenders);
       
-      //gets currentDefender (so we can pass this as a parameter)
-      Character currentDefender = defenders.getMember(currentDefendersPos);
-      
-      //carries out attack and clean up steps
-      executeAttack(currentAttacker, currentDefender, choice);
-      checkDefenderLife(currentAttacker, defenders, currentDefender, currentDefendersPos);
-      advanceTurnOrder(attackers, defenders);  
-              
       return false;
    }//close battleTurn
    
@@ -52,6 +76,12 @@ public abstract class BattleTurn
       
       return x;
    }   
+   
+   //hook for item using capabale characters
+   public void useItem(GoodGuy user) 
+   {
+      return;
+   }
    
    //both of these methods are overwritten in both goodGuy and badGuy turns
    abstract int chooseAttack(Character currentAttacker);
