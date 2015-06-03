@@ -7,16 +7,16 @@ public class Archer extends GoodGuy
       super("Archer", 40, 1, 20, 0.6D, 20);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new PerciseHit();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
       
 	}//close Archer
    
    public void addSecondSpecial()
    {
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new RapidShot();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
    }
 }//close Archer

@@ -7,16 +7,16 @@ public class Druid extends GoodGuy
       super("Druid", 50, 1, 12, 0.7D, 12);
    
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new StealLife();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
       
 	}//close Druid
    
    public void addSecondSpecial()
    {
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new SummonWolf();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
    }
 }//close Druid
