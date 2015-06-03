@@ -40,7 +40,7 @@ public class MainTester
 		  		direction = map.getMoveDirection(); 
 				
             //if player chose to quit, then gameOver becomes true
-            if (direction == "0") 
+            if (direction.equals("0")) 
             {
                gameOver = true;
             }

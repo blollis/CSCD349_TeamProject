@@ -28,7 +28,7 @@ public class SummonSkeleton implements Attack
       
          //take HP from monster
 			defender.setHP(defender.getHP() - damageAmountTemp);
-         System.out.println(attacker.getName() + " summoned a skeleton!";
+         System.out.println(attacker.getName() + " summoned a skeleton!");
          System.out.println();
 			System.out.println(attacker.getName() + " hit for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
          defender.setHP(defender.getHP() - damageAmountTemp/3);

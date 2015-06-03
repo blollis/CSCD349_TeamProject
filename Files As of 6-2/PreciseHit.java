@@ -1,12 +1,12 @@
 import java.util.*;
 
-public class PerciseHit implements Attack
+public class PreciseHit implements Attack
 {
       private String attackName;
    
-      public PerciseHit() 
+      public PreciseHit() 
       {
-         attackName = "Percise Hit";
+         attackName = "Precise Hit";
       }
    
       public String getName()
@@ -21,11 +21,11 @@ public class PerciseHit implements Attack
          //Skips the chance to hit so there is 100% chance to hit
 
   			//randomly generate amount of damage to be done within damage range
-         int damageAmountTemp = randomGenerator.nextInt(attacker.damageMax - attacker.damageMin)+ 1;
+         int damageAmountTemp = randomGenerator.nextInt(attacker.getDamageMax() - attacker.getDamageMin())+ 1;
         
          //take HP from monster
  			defender.setHP(defender.getHP() - damageAmountTemp);
-  			System.out.println("The hit will never miss, you hit for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
+  			System.out.println("This attack never misses! " + attacker.getName() + " hit for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
             
   		}   
                

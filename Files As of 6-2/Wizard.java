@@ -7,7 +7,7 @@ public class Wizard extends GoodGuy
       super("Wizard", 40, 1, 20, 0.8D, 15);
 
       //adds this character's special attack
-      Attack attack = new Fireball();
+      Attack attack = new FireBall();
       
       attacksInventory.addAttack(attack);
       

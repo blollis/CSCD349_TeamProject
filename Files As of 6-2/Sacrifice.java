@@ -38,7 +38,7 @@ public class Sacrifice implements Attack
       //else your attack fails
   		else 
       {
-  			System.out.println("Your attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
+  			System.out.println(attacker.getName() + "'s attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
  		}//else else
      
    }//close useAttack()

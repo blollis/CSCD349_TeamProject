@@ -25,13 +25,13 @@ public class SummonWolf implements Attack
       {
 			//randomly generate amount of damage to be done within damage range
          int damageAmountTemp = randomGenerator.nextInt(((attacker.getDamageMax()) - attacker.getDamageMin()) + 1) + attacker.getDamageMin() + 1;
-         int wolfDamage = radomGenerator.nextInt(20) + 1;
+         int wolfDamage = randomGenerator.nextInt(20) + 1;
          
          //take HP from monster
 			defender.setHP(defender.getHP() - damageAmountTemp);
 			System.out.println(attacker.getName() + " hit for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
-         defender.setHP(defender.getHP() - WolfDamage);
-			System.out.println("Wolf charges and bites for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
+         defender.setHP(defender.getHP() - wolfDamage);
+			System.out.println("A wolf appears and charges! He bites " + defender.getName() + " for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
          
 
 		}//close hitChance if

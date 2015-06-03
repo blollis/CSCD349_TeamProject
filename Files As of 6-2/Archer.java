@@ -7,7 +7,7 @@ public class Archer extends GoodGuy
       super("Archer", 40, 1, 20, 0.6D, 20);
       
       //adds this character's special attack
-      Attack attack = new PerciseHit();
+      Attack attack = new PreciseHit();
       
       attacksInventory.addAttack(attack);
       

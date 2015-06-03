@@ -25,7 +25,7 @@ public class AvadaKedavra implements Attack
       {
 			//take HP from monster
 			defender.setHP(0);
-			System.out.println(attacker.getName() + " hit the enemy with the Avada Kedavra course " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
+			System.out.println(attacker.getName() + " hit the enemy with the Avada Kedavra curse! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");
          
 		}//close hitChance if
       

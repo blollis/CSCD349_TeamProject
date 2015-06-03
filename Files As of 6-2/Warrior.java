@@ -15,7 +15,7 @@ public class Warrior extends GoodGuy
    
    public void addSecondSpecial()
    {
-      Attack attack = new WhirlWindOfDeath();
+      Attack attack = new WhirlwindOfDeath();
       
       attacksInventory.addAttack(attack);
    }
