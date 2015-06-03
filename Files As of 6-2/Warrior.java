@@ -7,17 +7,17 @@ public class Warrior extends GoodGuy
       super("Warrior", 75, 1, 20, 0.8D, 18);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new DoubleAttack();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
       
-	}//close Warrior
+	}//close Paladin
    
    public void addSecondSpecial()
    {
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new WhirlWindOfDeath();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
    }
    
 }//close Warrior

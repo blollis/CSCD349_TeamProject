@@ -7,17 +7,17 @@ public class Wizard extends GoodGuy
       super("Wizard", 40, 1, 20, 0.8D, 15);
 
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Fireball();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
       
-	}//close Wizard
+	}//close Paladin
    
    public void addSecondSpecial()
    {
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new AvadaKedavra();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
    }
    
 }//close Wizard

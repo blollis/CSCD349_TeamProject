@@ -7,16 +7,16 @@ public class Necromancer extends GoodGuy
       super("Necromancer", 50, 1, 10, 0.9D, 10);
       
       //adds this character's special attack
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new Bats();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
       
-	}//close Necromancer
+	}//close Paladin
    
    public void addSecondSpecial()
    {
-      Attack defaultAttack = new DefaultAttack();
+      Attack attack = new SummonSkeleton();
       
-      attacksInventory.addAttack(defaultAttack);
+      attacksInventory.addAttack(attack);
    }
 }//close Necromancer
