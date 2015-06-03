@@ -4,7 +4,7 @@ public class Bats implements Attack
 {
    private String attackName;
    
-   public DefaultAttack() 
+   public Bats() 
    {
       attackName = "Summon Bats";
    }
@@ -15,9 +15,7 @@ public class Bats implements Attack
    }
    
    public void useAttack(Character attacker, Character defender) 
-   {
-      BadGuy currentBadGuy = (BadGuy)defender;
-      
+   {      
       Random randomGenerator = new Random();
 
  		//randomly generated hitChance temp determines if attack will be a success
@@ -30,7 +28,7 @@ public class Bats implements Attack
          //Bat 1 thro 4 attacks
          for(int i = 1; i <= 4; i++)
          {
-            batAttack(attacker, currentBadGuy, i);
+            batAttack(attacker, defender, i);
          }
                
       }//close hitChance if
@@ -38,19 +36,19 @@ public class Bats implements Attack
       //else your attack fails
   		else 
       {
-  			System.out.println("Your attack was unsuccessful. " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.\n");       
+  			System.out.println("Your attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
  		}//else else
      
    }//close useAttack()
    
-   private void batAttack(Character attacker, BadGuy currentBadGuy, int i)
+   private void batAttack(Character attacker, Character defender, int i)
    {
       //randomly generate amount of damage to be done within damage range for one bat
       int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax / 3) - attacker.damageMin) + 1) + attacker.damageMin;
          
       //take HP from monster
-  		currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-  		System.out.println("Bat " + i + " hits for " + damageAmountTemp + " points of damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+  		defender.setHP(defender.getHP() - damageAmountTemp);
+  		System.out.println("Bat " + i + " hits for " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
    }//close batAttack()
    
 }//Close class DrainLife

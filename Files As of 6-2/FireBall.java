@@ -4,7 +4,7 @@ public class FireBall implements SpecialAttack
 {
       private String attackName;
    
-      public DefaultAttack() 
+      public FireBall() 
       {
          attackName = "Fire Ball";
       }
@@ -17,8 +17,6 @@ public class FireBall implements SpecialAttack
       
       public void useAttack(Character attacker, Character defender) 
       {
-         BadGuy currentBadGuy = (BadGuy)defender;
-      
          Random randomGenerator = new Random();
 
    		//randomly generated hitChance temp determines if attack will be a success
@@ -30,44 +28,17 @@ public class FireBall implements SpecialAttack
             int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax * 2) - attacker.damageMin) + 1) + attacker.damageMin;
          
             //take HP from monster
-   			currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-   			System.out.println("You casted a fire ball dealing " + damageAmountTemp + " points of damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
-            
-            //if statement to find out if monster is dead
-   			if (currentBadGuy.checkForLife()) 
-            {
-   				//randomly generate healChanceTemp determines if monster will heal
-               double healChanceTemp = randomGenerator.nextDouble();
-   
-   				if (healChanceTemp < currentBadGuy.getChanceToHeal()) 
-               {
-   					//randomly generate amount to be healed within heal range
-                  int healAmountTemp = randomGenerator.nextInt((currentBadGuy.getHealMax() - currentBadGuy.getHealMin()) + 1) + currentBadGuy.getHealMin();
-                  
-                  //set new HP for monster
-   					currentBadGuy.setHP(currentBadGuy.getHP() + healAmountTemp);
-   
-   					System.out.println(currentBadGuy.getName() + " healed himself! He now has " + currentBadGuy.getHP() + " HP points.\n");
-   
-   				}//close temp <chanceToHeal
-               
-               //else healing fails
-   				else 
-               {
-   					System.out.println(currentBadGuy.getName() + " attempted to heal himself but failed. He still has " + currentBadGuy.getHP() + " HP points.\n");
-   				}//close else
-               
-   			}//close currentBadGuy healing attempt
+   			defender.setHP(defender.getHP() - damageAmountTemp);
+   			System.out.println("You casted a fire ball dealing " + damageAmountTemp + " points of damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
             
    		}//close hitChance if
          
          //else your attack fails
    		else 
          {
-   			System.out.println("Your attack was unsuccessful. " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.\n");       
+   			System.out.println("Your attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
    		}//else else
       }
    
-            
-   }   
+               
 }

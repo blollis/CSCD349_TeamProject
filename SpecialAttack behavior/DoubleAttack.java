@@ -4,7 +4,7 @@ public class DoubleAttack implements Attack
 {
       private String attackName;
    
-      public DefaultAttack() 
+      public DoubleAttack() 
       {
          attackName = "Default Attack";
       }
@@ -17,8 +17,6 @@ public class DoubleAttack implements Attack
       //perform useAttack two times;
       public void useAttack(Character attacker, Character defender) 
       {
-         BadGuy currentBadGuy = (BadGuy)defender;
-      
          Random randomGenerator = new Random();
 
    		//randomly generated hitChance temp determines if attack will be a success
@@ -27,55 +25,55 @@ public class DoubleAttack implements Attack
    		if (hitChanceTemp < attacker.hitChance) 
          {
             int i = 0;
-            while(i < 2 && currentBadGuy.checkForLife)
+            while(i < 2 && defender.checkForLife)
             {
-               doubleStrike(attacker, currentBadGuy, i);
+               doubleStrike(attacker, defender, i);
                i++;
             }
             
    			//if statement to find out if monster is dead
-   			if (currentBadGuy.checkForLife()) 
+   			if (defender.checkForLife()) 
             {
    				//randomly generate healChanceTemp determines if monster will heal
                double healChanceTemp = randomGenerator.nextDouble();
    
-   				if (healChanceTemp < currentBadGuy.getChanceToHeal()) 
+   				if (healChanceTemp < defender.getChanceToHeal()) 
                {
    					//randomly generate amount to be healed within heal range
-                  int healAmountTemp = randomGenerator.nextInt((currentBadGuy.getHealMax() - currentBadGuy.getHealMin()) + 1) + currentBadGuy.getHealMin();
+                  int healAmountTemp = randomGenerator.nextInt((defender.getHealMax() - defender.getHealMin()) + 1) + defender.getHealMin();
                   
                   //set new HP for monster
-   					currentBadGuy.setHP(currentBadGuy.getHP() + healAmountTemp);
+   					defender.setHP(defender.getHP() + healAmountTemp);
    
-   					System.out.println(currentBadGuy.getName() + " healed himself! He now has " + currentBadGuy.getHP() + " HP points.\n");
+   					System.out.println(defender.getName() + " healed himself! He now has " + defender.getHP() + " HP points.\n");
    
    				}//close temp <chanceToHeal
                
                //else healing fails
    				else 
                {
-   					System.out.println(currentBadGuy.getName() + " attempted to heal himself but failed. He still has " + currentBadGuy.getHP() + " HP points.\n");
+   					System.out.println(defender.getName() + " attempted to heal himself but failed. He still has " + defender.getHP() + " HP points.\n");
    				}//close else
                
-   			}//close currentBadGuy healing attempt
+   			}//close defender healing attempt
             
    		}//close hitChance if
          
          //else your attack fails
    		else 
          {
-   			System.out.println("Your attack was unsuccessful. " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.\n");       
+   			System.out.println("Your attack was unsuccessful. " + defender.getName() + " has " + defender.getHP() + " hit points remaining.\n");       
    		}//else else
       }
    
-      private void doubleStrike(Character attacker, BadGuy defender, int i)
+      private void doubleStrike(Character attacker, Character defender, int i)
       {
          //randomly generate amount of damage to be done within damage range
          int damageAmountTemp = randomGenerator.nextInt(((attacker.damageMax) - attacker.damageMin) + 1) + attacker.damageMin;
          
          //take HP from monster
-   	   currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-   		System.out.println("Attack " + i + " was successful for " + damageAmountTemp + " points damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+   	   defender.setHP(defender.getHP() - damageAmountTemp);
+   		System.out.println("Attack " + i + " was successful for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
       } 
 
 }

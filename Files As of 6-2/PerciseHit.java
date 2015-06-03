@@ -4,7 +4,7 @@ public class PerciseHit implements Attack
 {
       private String attackName;
    
-      public DefaultAttack() 
+      public PerciseHit() 
       {
          attackName = "Percise Hit";
       }
@@ -16,8 +16,6 @@ public class PerciseHit implements Attack
       
       public void useAttack(Character attacker, Character defender) 
       {
-         BadGuy currentBadGuy = (BadGuy)defender;
-      
          Random randomGenerator = new Random();
 
          //Skips the chance to hit so there is 100% chance to hit
@@ -26,36 +24,9 @@ public class PerciseHit implements Attack
          int damageAmountTemp = randomGenerator.nextInt(attacker.damageMax - attacker.damageMin)+ 1;
         
          //take HP from monster
- 			currentBadGuy.setHP(currentBadGuy.getHP() - damageAmountTemp);
-  			System.out.println("The hit will never miss, you hit for " + damageAmountTemp + " points damage! " + currentBadGuy.getName() + " has " + currentBadGuy.getHP() + " hit points remaining.");
+ 			defender.setHP(defender.getHP() - damageAmountTemp);
+  			System.out.println("The hit will never miss, you hit for " + damageAmountTemp + " points damage! " + defender.getName() + " has " + defender.getHP() + " hit points remaining.");
             
-         //if statement to find out if monster is dead
- 			if (currentBadGuy.checkForLife()) 
-         {
-  				//randomly generate healChanceTemp determines if monster will heal
-            double healChanceTemp = randomGenerator.nextDouble();
-   
-  				if (healChanceTemp < currentBadGuy.getChanceToHeal()) 
-            {
-  					//randomly generate amount to be healed within heal range
-               int healAmountTemp = randomGenerator.nextInt((currentBadGuy.getHealMax() - currentBadGuy.getHealMin()) + 1) + currentBadGuy.getHealMin();
-                  
-               //set new HP for monster
- 					currentBadGuy.setHP(currentBadGuy.getHP() + healAmountTemp);
-   
-  					System.out.println(currentBadGuy.getName() + " healed himself! He now has " + currentBadGuy.getHP() + " HP points.\n");
-   
-  				}//close temp <chanceToHeal
-               
-            //else healing fails
-				else 
-            {
-  					System.out.println(currentBadGuy.getName() + " attempted to heal himself but failed. He still has " + currentBadGuy.getHP() + " HP points.\n");
-  				}//close else
-               
-  			}//close currentBadGuy healing attempt
-           
   		}   
-            
-   }   
+               
 }
